@@ -1,0 +1,15 @@
+<h1>Hello Templ</h1>
+
+
+
+ID: <%= params[:id] %><br />
+Next page: <%= @page + 1 %><br />
+
+<%= link_to("I'm just a link",{:action => 'index'}) %>
+
+<br /><br />
+<%= params.inspect %>
+
+<% @array.each do |n| %><br />
+<%= n %><br />
+<% end %>
