@@ -10,15 +10,52 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111019142607) do
+ActiveRecord::Schema.define(:version => 20111020141344) do
 
-  create_table "users", :force => true do |t|
-    t.string   "first_name", :limit => 25
-    t.string   "last_name",  :limit => 50
-    t.string   "email",                    :default => "", :null => false
-    t.string   "password",   :limit => 40
+  create_table "admin_users", :force => true do |t|
+    t.string   "first_name",      :limit => 25
+    t.string   "last_name",       :limit => 50
+    t.string   "email",           :limit => 100, :default => "", :null => false
+    t.string   "hashed_password", :limit => 40
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "username",        :limit => 25
+    t.string   "salt",            :limit => 40
+  end
+
+  add_index "admin_users", ["username"], :name => "index_admin_users_on_username"
+
+  create_table "pages", :force => true do |t|
+    t.string   "name"
+    t.string   "permalink"
+    t.integer  "position"
+    t.boolean  "visible"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "pages", ["name"], :name => "index_pages_on_name"
+  add_index "pages", ["permalink"], :name => "index_pages_on_permalink"
+
+  create_table "sections", :force => true do |t|
+    t.string   "name"
+    t.integer  "position"
+    t.boolean  "visible"
+    t.string   "content_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "sections", ["name"], :name => "index_sections_on_name"
+
+  create_table "subjects", :force => true do |t|
+    t.string   "name"
+    t.integer  "position"
+    t.boolean  "visible"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "subjects", ["name"], :name => "index_subjects_on_name"
 
 end
