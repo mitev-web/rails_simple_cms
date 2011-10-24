@@ -5,3 +5,9 @@
 #
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => cities.first)
+
+5.times do |x|
+Page.create(:name => "Page #{x}", :position => x, :visible => "true" )
+Subject.create(:name => "Subject #{x}", :position => x, :visible => "true" )
+Section.create(:name => "Subject #{x}", :position => x, :visible => "true" )
+end
