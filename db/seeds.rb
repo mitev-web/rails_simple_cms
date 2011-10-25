@@ -14,4 +14,5 @@ end
 
 a = AdminUser.create(:first_name => 'pero', :last_name => 'perev', :username =>'tt17')
 p = Page.first
-p << a
+p.editors << a
+Section.create(:name =>"Section One", :position => 1)
