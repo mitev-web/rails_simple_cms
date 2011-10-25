@@ -1,0 +1,15 @@
+=link_to("<< Back to List", {:action => 'list'}, :class => 'back-link')
+.subject.new
+ %h2 Update Subject
+ %form{:action => "http://localhost:3000/subjects/update", :id => @subject.id, :method => "post"}
+  %table{:summary => "Subject form fields"}
+  %tr
+   %th Name
+   %td= text_field(:subject, :name)
+  %tr
+   %th Position
+   %td= text_field(:subject, :position)
+  %tr
+   %th Visible
+   %td= text_field(:subject, :visible)
+   %input{:name => "commit", :type => "submit", :value => "Update Subject"}
