@@ -11,3 +11,7 @@ Page.create(:name => "Page #{x}", :position => x, :visible => "true" )
 Subject.create(:name => "Subject #{x}", :position => x, :visible => "true" )
 Section.create(:name => "Subject #{x}", :position => x, :visible => "true" )
 end
+
+a = AdminUser.create(:first_name => 'pero', :last_name => 'perev', :username =>'tt17')
+p = Page.first
+p << a
