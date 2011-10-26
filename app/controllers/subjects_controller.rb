@@ -34,12 +34,13 @@ class SubjectsController < ApplicationController
 	end
 	
 	def edit
-		@subject = Subject.find(params[:id])	
+		@subject = Subject.find(params[:id])
 	end
 	
-		def update
+	def update
 		#find obj
-		@subject = Subject.find(params[:id])	
+		@subject = Subject.find(params[:id])
+
 		#update the obj
 		if @subject.update_attributes(params[:subject])
 		#if 1 -> list
@@ -47,6 +48,7 @@ class SubjectsController < ApplicationController
 		else #if 0 -> redisplay the form
 			render('edit')
 		end
+
 	end
 	
 end
