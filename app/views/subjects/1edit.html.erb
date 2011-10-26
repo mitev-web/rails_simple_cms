@@ -2,7 +2,7 @@
 <div class="subject edit">
 	<h2>Update Subject</h2>
 	
-<%= form(:subject, :url => {:action => 'update', :id => @subject.id}) do |f| %>
+<%= form_for(:subject, :url => {:action => 'update', :id => @subject.id}) do |f| %>
 
 	<table summary="Subject form fields">
 		<tr>
@@ -20,7 +20,7 @@
 	</table>
 	
 	<div class="form-buttons">
-		<%= submit_tab("Create Subject") %>
+		<%= submit_tag("Create Subject") %>
 	</div>
 	
 	<% end %>

@@ -1,3 +1,6 @@
+- if !flash[:notice].nil?
+  .notice
+    = flash[:notice]
 .subject.list
   %h2 Subjects
   = link_to("Add New Subject", {:action => 'new'}, :class => 'action new')
@@ -17,4 +20,4 @@
         %td.actions
           = link_to("Show", {:action => 'show', :id => subject.id}, :class => 'action show')
           = link_to("Edit", {:action => 'edit', :id => subject.id}, :class => 'action edit')
-          = link_to("Delete", '#', :class => 'action delete')
+          = link_to("Delete", {:action => 'delete', :id => subject.id}, :class => 'action delete')

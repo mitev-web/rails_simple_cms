@@ -26,6 +26,7 @@ class SubjectsController < ApplicationController
 		@subject = Subject.new(params[:subject])
 		#save the obj
 		if @subject.save
+		flash[:notice] = "Subject created successfully !"
 		#if 1 -> list
 			redirect_to(:action => 'list')
 		else #if 0 -> redisplay the form
@@ -49,6 +50,19 @@ class SubjectsController < ApplicationController
 			render('edit')
 		end
 
+	end
+	
+	
+	def delete
+	
+	@subject = Subject.find(params[:id])
+	
+	end
+	
+	def destroy
+		Subject.find(params[:id]).destroy
+		flash[:notice] = "Subject destroyed !"
+		redirect_to(:action => 'list')
 	end
 	
 end
