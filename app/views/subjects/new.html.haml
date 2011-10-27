@@ -2,14 +2,5 @@
 .subject.new
  %h2 Create Subject
  =form_for(:subject, :url => {:action => 'create'}) do |f|
-  %table{:summary => "Subject form fields"}
-  %tr
-   %th Name
-   %td= f.text_field(:name)
-  %tr
-   %th Position
-   %td= f.text_field(:position)
-  %tr
-   %th Visible
-   %td= f.text_field(:visible)
-   = submit_tag("Create Subject")
+  =render(:partial => "shared/form", :locals => {:f => f})
+  = submit_tag("Create Subject")

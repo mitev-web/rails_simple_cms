@@ -2,15 +2,6 @@
 .subject.edit
   %h2 Update Subject
   = form_for(:subject, :url => {:action => 'update', :id => @subject.id}) do |f|
-    %table{:summary => "Subject form fields"}
-      %tr
-        %th Name
-        %td= f.text_field(:name)
-      %tr
-        %th Position
-        %td= f.text_field(:position)
-      %tr
-        %th Visible
-        %td= f.text_field(:visible)
+    =render(:partial => "shared/form", :locals => {:f => f})
     .form-buttons
       = submit_tag("Update Subject")

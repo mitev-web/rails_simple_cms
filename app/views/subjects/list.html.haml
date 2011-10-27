@@ -3,7 +3,11 @@
     = flash[:notice]
 .subject.list
   %h2 Subjects
+  .add_new
   = link_to("Add New Subject", {:action => 'new'}, :class => 'action new')
+  %div
+  = pluralize(@subjects.size, 'subject')
+  found
   %table.listing{:summary => "Subject list"}
     %tr.header
       %th  
@@ -12,10 +16,10 @@
       %th Pages
       %th Actions		
     - @subjects.each do |subject|
-      %tr
+      %tr{:class => cycle('odd', 'even')}
         %td= subject.position
         %td= subject.name
-        %td.center= subject.visible ? 'Yes' : 'No'
+        %td.center= status_tag(subject.visible)
         %td.center= subject.pages.size
         %td.actions
           = link_to("Show", {:action => 'show', :id => subject.id}, :class => 'action show')
