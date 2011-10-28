@@ -1,0 +1,20 @@
+=link_to("<< Back to List", {:action => 'list'}, :class => 'back-link')
+.subject.show
+ %h2 Show Subject
+ %table{:summary => "Subject detail view"}
+  %tr
+   %th Name
+   %td= @section.name
+  %tr
+   %th Position
+   %td= @section.position
+  %tr
+   %th Visible
+   %td= @section.visible ? 'true' : 'false'
+  %tr
+   %th Created
+   %td= @section.created_at  
+  %tr
+   %th Updated
+    
+ 

@@ -1,0 +1,6 @@
+=link_to("<< Back to List", {:action => 'list'}, :class => 'back-link')
+.section.new
+ %h2 Create Section
+ =form_for(:section, :url => {:action => 'create'}) do |f|
+  =render(:partial => "shared/form", :locals => {:f => f})
+  = submit_tag("Create Section")

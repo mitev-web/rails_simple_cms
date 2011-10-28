@@ -1,12 +1,16 @@
 class Subject < ActiveRecord::Base
-has_many :pages
-
-scope :invisible, where(:visible => false)
-scope :visible, where(:visible => true)
-#lambda expr scope with sql escape
-scope :search, lambda {|query| where(["name LIKE ?", "%#{query}%"])}
-
-#pass 2 or more parameters
-scope :named, lambda {|first,last| where(:first_name => first, :last_name => last)}
-
+  
+  has_many :pages
+  
+  # Don't need to validate (in most cases):
+  #   ids, foreign keys, timestamps, booleans, counters
+  validates_presence_of :name
+  validates_length_of :name, :maximum => 255
+  # validates_presence_of vs. validates_length_of :minimum => 1
+  # different error messages: "can't be blank" or "is too short"
+  # validates_length_of allows strings with only spaces!
+  
+  scope :visible, where(:visible => true)
+  scope :invisible, where(:visible => false)
+  scope :search, lambda {|query| where(["name LIKE ?", "%#{query}%"])}
 end

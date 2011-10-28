@@ -1,0 +1,7 @@
+= link_to("<< Back to List", {:action => 'list'}, :class => 'back-link')
+.section.edit
+  %h2 Update Section
+  = form_for(:section, :url => {:action => 'update', :id => @section.id}) do |f|
+    =render(:partial => "shared/form", :locals => {:f => f})
+    .form-buttons
+      = submit_tag("Update Section")

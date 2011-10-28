@@ -1,0 +1,8 @@
+= link_to("<< Back to List", {:action => 'list'}, :class => 'back-link')
+.section.delete
+  %h2 Delete Section
+  = form_for(:section, :url => {:action => 'destroy', :id => @section.id}) do |f|
+    %p Are you sure you want to delete the section below b1Atch?
+    %p.reference-name= @section.name
+    .form-buttons
+      = submit_tag("Delete Section")

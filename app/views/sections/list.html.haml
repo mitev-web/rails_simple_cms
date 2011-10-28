@@ -1,0 +1,27 @@
+- if !flash[:notice].nil?
+  .notice
+    = flash[:notice]
+.section.list
+  %h2 Sections
+  .add_new
+  = link_to("Add New Section", {:action => 'new'}, :class => 'action new')
+  %div
+  = pluralize(@sections.size, 'section')
+  found
+  %table.listing{:summary => "Section list"}
+    %tr.header
+      %th  
+      %th Section
+      %th Visible
+      %th Pages
+      %th Actions		
+    - @sections.each do |section|
+      %tr{:class => cycle('odd', 'even')}
+        %td= section.position
+        %td= section.name
+        %td.center= status_tag(section.visible)
+        %td.center= section.pages.size
+        %td.actions
+          = link_to("Show", {:action => 'show', :id => section.id}, :class => 'action show')
+          = link_to("Edit", {:action => 'edit', :id => section.id}, :class => 'action edit')
+          = link_to("Delete", {:action => 'delete', :id => section.id}, :class => 'action delete')

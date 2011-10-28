@@ -2,5 +2,5 @@
 .subject.new
  %h2 Create Subject
  =form_for(:subject, :url => {:action => 'create'}) do |f|
-  =render(:partial => "shared/form", :locals => {:f => f})
+  =render(:partial => "form", :locals => {:f => f})
   = submit_tag("Create Subject")

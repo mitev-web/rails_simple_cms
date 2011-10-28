@@ -4,8 +4,7 @@
   %td= f.text_field(:name)
   %tr
    %th Position
-   %td= f.text_field(:position)
+  %td= f.select(:position, 1..@subject_count)
   %tr
    %th Visible
-   %td= f.text_field(:visible)
-
+   %td= f.check_box(:visible)
